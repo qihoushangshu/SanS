@@ -23,26 +23,26 @@ public class SayController {
 	@RequestMapping(path = "/saveSay",method = RequestMethod.POST)
 	public String saveSayWords(@RequestBody SayInfo say) {
 		boolean isSuccess = false;
-//	    try {
-//	    	List<String[]> sayInfoList = CSVUtil.readCSV();
-//	    	int length = sayInfoList.size();
-//	    	if (0!=length) {
-//	    		sayInfoList.sort((String[] o1,String[] o2)->Integer.parseInt(o1[0])-Integer.parseInt(o2[0]));
-//	    		logger.info("-----------------------------");
-//	    		//sayInfoList.forEach(item->logger.info(item[0]));
-//	    		
-//	    		int lastId = Integer.parseInt(sayInfoList.get(length-1)[0])+1;
-//	    		String sayInfo[] = {String.valueOf(lastId),say.getTitle(),say.getContent()};
-//	    		sayInfoList.add(sayInfo);
-//	    	}else {
-//	    		String sayInfo[] = {String.valueOf(1),say.getTitle(),say.getContent()};
-//	    		sayInfoList.add(sayInfo);
-//	    	}
-//			isSuccess = CSVUtil.createCsv(sayInfoList);
-//		} catch (Exception e) {
-//			// TODO Auto-generated catch block
-//			logger.info(e.getMessage());
-//		}
+	    try {
+	    	List<String[]> sayInfoList = CSVUtil.readCSV();
+	    	int length = sayInfoList.size();
+	    	if (0!=length) {
+	    		sayInfoList.sort((String[] o1,String[] o2)->Integer.parseInt(o1[0])-Integer.parseInt(o2[0]));
+	    		logger.info("-----------------------------");
+	    		//sayInfoList.forEach(item->logger.info(item[0]));
+	    		
+	    		int lastId = Integer.parseInt(sayInfoList.get(length-1)[0])+1;
+	    		String sayInfo[] = {String.valueOf(lastId),say.getTitle(),say.getContent()};
+	    		sayInfoList.add(sayInfo);
+	    	}else {
+	    		String sayInfo[] = {String.valueOf(1),say.getTitle(),say.getContent()};
+	    		sayInfoList.add(sayInfo);
+	    	}
+			isSuccess = CSVUtil.createCsv(sayInfoList);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			logger.info(e.getMessage());
+		}
 	    return "{\"ret\":"+isSuccess+"}";
 	}
 	
