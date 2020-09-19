@@ -2,10 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>初始画面</title>
+<title>保存</title>
 
 <!-- Bootstrap -->
-<link href="../bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../bootstrap-3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../css/common.css" rel="stylesheet">
+
 </head>
 <body>
 <!-- <p th:text="'Hello, ' + ${userName} + '!'"></p> -->
@@ -53,32 +55,36 @@
 
     <div class="container">
 
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <div class="list-group">
-		  <a href="#" class="list-group-item active">
-		    增删改查
-		  </a>
-		  <a href="addJump" id="addJump" class="list-group-item">保存</a>
-		  <a href="#" class="list-group-item">删除</a>
-		  <a href="#" class="list-group-item">修改</a>
-		  <a href="#" class="list-group-item">查询</a>
-		  <a href="#" class="list-group-item">查询（分页）</a>
-		</div>
-		<a href="#" class="list-group-item active">
-		    上传下载
-		  </a>
-		  <a href="#" class="list-group-item">上传</a>
-		  <a href="#" class="list-group-item">下载</a>
-		</div>
-      </div>
+     <div class="panel panel-default">
+	     <div class="panel-body">
+	         <div class="alert alert-success display-none" role="alert" id="successMsg"></div>
+	         <div class="alert alert-danger display-none" role="alert" id="errorMsg"></div>
+	    	 <form role="form">
+			  <div class="form-group">
+			    <label for="name">姓名</label>
+			    <input type="text" class="form-control" id="name" placeholder="请输入姓名">
+			  </div>
+			 <!--  <div class="form-group">
+			    <label for="inputfile">文件输入</label>
+			    <input type="file" id="inputfile">
+			    <p class="help-block">这里是块级帮助文本的实例。</p>
+			  </div> -->
+			  <!-- <div class="checkbox">
+			    <label>
+			      <input type="checkbox">请打勾
+			    </label>
+			  </div> -->
+			  <button type="button" id="add" class="btn btn-default">提交</button>
+			</form>
+	     </div>
+     </div>
 
     </div> <!-- /container -->
 
     <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
-    <script src="../bootstrap-3.3.7/js/tests/vendor/jquery.min.js"></script>
-    <script src="../js/ss1.js"></script>
+    <script src="../../bootstrap-3.3.7/js/tests/vendor/jquery.min.js"></script>
+    <script src="../../js/ss1.js"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
-    <script src="../bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="../../bootstrap-3.3.7/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

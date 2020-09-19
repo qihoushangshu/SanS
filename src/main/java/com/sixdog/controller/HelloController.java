@@ -8,10 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 
 
@@ -31,11 +28,10 @@ public class HelloController {
 		
 	}
 	
-	@RequestMapping("hello")
-	public String hello(Map<String,Object> map) {
-		logger.info("-----hello-------开始-----------");
-		map.put("msg", "hello");
-		return "hello";
+	@RequestMapping("addJump")
+	public String addJump() {
+		logger.info("-----addJump-------开始-----------");
+		return "ss1/add";
 		
 	}
 	
