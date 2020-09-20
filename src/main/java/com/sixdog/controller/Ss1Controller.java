@@ -1,16 +1,14 @@
 package com.sixdog.controller;
 
 
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,14 +29,21 @@ public class Ss1Controller {
 	
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	@ResponseBody
-	public String add(HttpServletRequest request) {
+	public String add(@RequestBody @Validated User user, BindingResult bindingResult) {
 		logger.info("-----add-------开始-----------");
 		String flag = "success";
+		if (bindingResult.hasErrors()) {
+	        // 具体的处理逻辑，如封装错误信息等
+			System.out.println(bindingResult.getFieldError().getDefaultMessage());
+			
+			logger.info("---------add ----结束---");
+			flag = "fail";
+			return "{\"status\":\""+flag+"\",\"errmsg\":\""+bindingResult.getFieldError().getDefaultMessage()+"\"}";
+			
+	    }
+		
 		try {
-		String name = request.getParameter("name");
-		User u = new User();
-		u.setName(name);
-		userMapper.saveUser(u);
+		userMapper.saveUser(user);
 		}catch(Exception e) {
 			flag = "fail";
 		}
